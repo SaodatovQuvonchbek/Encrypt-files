@@ -1,0 +1,27 @@
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.AssemblyReference.cache
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.Form1.resources
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.Properties.Resources.resources
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.GenerateResource.cache
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.CoreCompileInputs.cache
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\bin\x64\Debug\OutlookDemo.exe.config
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\bin\x64\Debug\OutlookDemo.exe
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\bin\x64\Debug\OutlookDemo.pdb
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\bin\x64\Debug\DocPdfViewer.NET.dll
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\bin\x64\Debug\Guna.Charts.WinForms.dll
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\bin\x64\Debug\Guna.UI2.dll
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.CopyComplete
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.exe
+C:\Users\saoda\Downloads\codeinpc.comOutlookDemo (1)\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.pdb
+C:\Users\saoda\Downloads\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.AssemblyReference.cache
+C:\Users\saoda\Downloads\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\saoda\Downloads\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.Form1.resources
+C:\Users\saoda\Downloads\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.GenerateResource.cache
+C:\Users\saoda\Downloads\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.exe
+C:\Users\saoda\Downloads\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.pdb
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.AssemblyReference.cache
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.SuggestedBindingRedirects.cache
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.Form1.resources
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.csproj.GenerateResource.cache
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.exe
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\x64\Debug\OutlookDemo.pdb

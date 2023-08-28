@@ -1,0 +1,4 @@
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\Release\OutlookDemo.csproj.AssemblyReference.cache
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\Release\OutlookDemo.csproj.SuggestedBindingRedirects.cache
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\Release\OutlookDemo.Form1.resources
+F:\LOYIHALAR\C# dan dasturlarim\tugatgan lohiyalar\Qo'llanma\OutlookDemo\OutlookDemo\obj\Release\OutlookDemo.csproj.GenerateResource.cache
