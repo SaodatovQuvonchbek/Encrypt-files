@@ -12,3 +12,19 @@ C:\Users\Kuvonch\Documents\Shifrlash dasturi\OutlookDemo\obj\Debug\Shirflash.csp
 C:\Users\Kuvonch\Documents\Shifrlash dasturi\OutlookDemo\obj\Debug\Shirflash.csproj.CopyComplete
 C:\Users\Kuvonch\Documents\Shifrlash dasturi\OutlookDemo\obj\Debug\OutlookDemo.exe
 C:\Users\Kuvonch\Documents\Shifrlash dasturi\OutlookDemo\obj\Debug\OutlookDemo.pdb
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\OutlookDemo.exe.config
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\OutlookDemo.exe
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\OutlookDemo.pdb
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\Guna.Charts.WinForms.dll
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\Guna.UI2.dll
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\Shirflash.csproj.AssemblyReference.cache
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\Shirflash.csproj.SuggestedBindingRedirects.cache
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.Form1.resources
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.Properties.Resources.resources
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\Shirflash.csproj.GenerateResource.cache
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\Shirflash.csproj.CoreCompileInputs.cache
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\Shirflash.csproj.CopyComplete
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.exe
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.pdb
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.USercontrol.Encryptcontrol.resources
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.USercontrol.EncryptedData.resources
