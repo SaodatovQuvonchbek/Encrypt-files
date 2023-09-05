@@ -28,3 +28,8 @@ C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.exe
 C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.pdb
 C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.USercontrol.Encryptcontrol.resources
 C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.USercontrol.EncryptedData.resources
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\x86\sqlite3.dll
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\x64\sqlite3.dll
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\System.Data.SQLite.dll
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\System.Data.SQLite.xml
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.Login.resources

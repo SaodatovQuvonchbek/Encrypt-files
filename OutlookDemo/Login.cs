@@ -20,10 +20,12 @@ namespace OutlookDemo
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            SQLiteConnection conn = new SQLiteConnection();
-            conn.Open();    
+            Guid guid = Guid.NewGuid();
 
-              
+
+            MessageBox.Show(guid.ToString());
+
+
         }
 
         private void guna2GradientCircleButton1_Click(object sender, EventArgs e)
