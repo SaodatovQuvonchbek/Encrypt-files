@@ -33,3 +33,4 @@ C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\x64\sqlite3.dll
 C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\System.Data.SQLite.dll
 C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\bin\Debug\System.Data.SQLite.xml
 C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.Login.resources
+C:\Users\Kuvonch\Documents\Encrypt-files\OutlookDemo\obj\Debug\OutlookDemo.AdminForm.resources

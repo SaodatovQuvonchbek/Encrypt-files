@@ -20,10 +20,7 @@ namespace OutlookDemo
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            Guid guid = Guid.NewGuid();
-
-
-            MessageBox.Show(guid.ToString());
+           
 
 
         }
