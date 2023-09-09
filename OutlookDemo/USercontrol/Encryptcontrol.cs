@@ -38,11 +38,7 @@ namespace OutlookDemo.USercontrol
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length < 8)
-            {
-                MessageBox.Show("Password must have 8 characters!", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
             //This is for selected files
             if (listBox1.Items.Count > 0)
             {
@@ -56,6 +52,8 @@ namespace OutlookDemo.USercontrol
                     }
                 }
             }
+
+            MessageBox.Show("Fayl muvaffaqiyatli saqlandi", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             ////This is for selected folders
             //if (listBox2.Items.Count > 0)
             //{
