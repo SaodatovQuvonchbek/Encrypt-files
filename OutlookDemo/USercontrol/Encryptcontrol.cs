@@ -45,15 +45,15 @@ namespace OutlookDemo.USercontrol
                 for (int num = 0; num < listBox1.Items.Count; num++)
                 {
                     string e_file = "" + listBox1.Items[num];
-                    if (!e_file.Trim().EndsWith(".!LOCKED") && File.Exists(e_file))
+                    if (!e_file.Trim().EndsWith(".!KS") && File.Exists(e_file))
                     {
-                        EncryptFile("" + listBox1.Items[num], "" + listBox1.Items[num] + ".!LOCKED", textBox1.Text);
+                        EncryptFile("" + listBox1.Items[num], "" + listBox1.Items[num] + ".!KS", textBox1.Text);
                         File.Delete("" + listBox1.Items[num]);
                     }
                 }
             }
 
-            MessageBox.Show("Fayl muvaffaqiyatli saqlandi", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Fayl muvaffaqiyatli saqlandi", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ////This is for selected folders
             //if (listBox2.Items.Count > 0)
             //{
@@ -73,7 +73,7 @@ namespace OutlookDemo.USercontrol
             //}
 
 
-            char[] mychar = { '!', '.', 'L', 'O', 'C', 'K', 'E', 'D' };
+            char[] mychar = { '!', '.', 'K', 'S' };
         }
         private void EncryptFile(string inputFile, string outputFile, string password)
         {

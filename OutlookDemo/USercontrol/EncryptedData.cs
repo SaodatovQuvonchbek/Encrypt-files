@@ -94,7 +94,7 @@ namespace OutlookDemo.USercontrol
                 // SaveFileDialog yaratamiz va sozlamalarni belgilaymiz
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
 
-                saveFileDialog.Filter = "Deshifrlash files (*.mp4)|*.mp4";
+            //    saveFileDialog.Filter = "Deshifrlash files (*.mp4)|*.mp4";
                 saveFileDialog.FileName = fileName;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)

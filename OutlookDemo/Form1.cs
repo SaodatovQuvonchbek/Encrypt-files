@@ -18,12 +18,14 @@ namespace OutlookDemo
 {
     public partial class Form1 : Form
     {
-        public Form1()
+       
+
+        public Form1(string username,string name)
         {
             InitializeComponent();
+            guna2HtmlLabel2.Text = username;
+            guna2HtmlLabel1.Text = name;
         }
-
-
 
         private void moveImageBox(object sender)
         {
@@ -50,9 +52,8 @@ namespace OutlookDemo
      
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Encryptcontrol uc = new Encryptcontrol();
+            EncryptedData uc = new EncryptedData();
             addUserControl(uc);
-
 
         }
 
@@ -76,7 +77,9 @@ namespace OutlookDemo
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            EncryptedData uc = new EncryptedData();
+            
+
+            Encryptcontrol uc = new Encryptcontrol();
             addUserControl(uc);
 
 

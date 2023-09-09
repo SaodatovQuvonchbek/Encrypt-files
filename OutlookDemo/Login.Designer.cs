@@ -63,6 +63,7 @@
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 9, 9);
             this.guna2Panel1.Size = new System.Drawing.Size(403, 455);
             this.guna2Panel1.TabIndex = 9;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2ComboBox1
             // 

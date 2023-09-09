@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -41,8 +42,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.textOnButtonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.til = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textOnButtonsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +62,19 @@
             this.panel1.Size = new System.Drawing.Size(216, 700);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(74, 659);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(71, 25);
+            this.guna2HtmlLabel5.TabIndex = 15;
+            this.guna2HtmlLabel5.Text = "Chiqish";
+            this.guna2HtmlLabel5.Visible = false;
+            this.guna2HtmlLabel5.MouseHover += new System.EventHandler(this.guna2HtmlLabel5_MouseHover);
             // 
             // guna2Button6
             // 
@@ -94,7 +109,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(201, 60);
             this.guna2Button2.TabIndex = 2;
-            this.guna2Button2.Text = "   Shifirlangan     malumotlar ";
+            this.guna2Button2.Text = "   Shifrlash";
             this.guna2Button2.UseTransparentBackground = true;
             this.guna2Button2.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -118,7 +133,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(201, 60);
             this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Shifirlash";
+            this.guna2Button1.Text = "   Shifirlangan     malumotlar ";
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -165,7 +180,7 @@
             this.Mualliflar.BackColor = System.Drawing.Color.Transparent;
             this.Mualliflar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Mualliflar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Mualliflar.Location = new System.Drawing.Point(1018, 22);
+            this.Mualliflar.Location = new System.Drawing.Point(1021, 35);
             this.Mualliflar.Name = "Mualliflar";
             this.Mualliflar.Size = new System.Drawing.Size(64, 25);
             this.Mualliflar.TabIndex = 18;
@@ -184,19 +199,6 @@
             // 
             this.textOnButtonsBindingSource.DataSource = typeof(Guna.UI2.WinForms.MessageDialog.TextOnButtons);
             // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(74, 659);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(71, 25);
-            this.guna2HtmlLabel5.TabIndex = 15;
-            this.guna2HtmlLabel5.Text = "Chiqish";
-            this.guna2HtmlLabel5.Visible = false;
-            this.guna2HtmlLabel5.MouseHover += new System.EventHandler(this.guna2HtmlLabel5_MouseHover);
-            // 
             // til
             // 
             this.til.BackColor = System.Drawing.Color.Transparent;
@@ -209,11 +211,35 @@
             this.til.Text = "Til sozlamari";
             this.til.Visible = false;
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(879, 35);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(64, 25);
+            this.guna2HtmlLabel1.TabIndex = 20;
+            this.guna2HtmlLabel1.Text = "Muallif";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(879, 4);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(64, 25);
+            this.guna2HtmlLabel2.TabIndex = 21;
+            this.guna2HtmlLabel2.Text = "Muallif";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(1179, 700);
+            this.Controls.Add(this.guna2HtmlLabel2);
+            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Mualliflar);
             this.Controls.Add(this.til);
@@ -252,6 +278,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel til;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
     }
 }
 
