@@ -264,6 +264,7 @@
             this.UpdateBt.Size = new System.Drawing.Size(132, 51);
             this.UpdateBt.TabIndex = 21;
             this.UpdateBt.Text = "Update";
+            this.UpdateBt.Click += new System.EventHandler(this.UpdateBt_Click_1);
             // 
             // LoginTxt
             // 

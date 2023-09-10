@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OutlookDemo
 {
@@ -23,14 +24,11 @@ namespace OutlookDemo
         public AdminForm()
         {
             InitializeComponent();
-
             populate();
-
-
 
         }
         private void populate()
-        {  //SQLiteDataAdapter da = new SQLiteDataAdapter("select Id, Savol, Ajavob, Bjavob, Cjavob, Djavob, Ejavob from QuesTab", con);
+        {
             using (SQLiteConnection con = new SQLiteConnection(dba))
             using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM LoginTab", con))
 
@@ -53,11 +51,10 @@ namespace OutlookDemo
         private bool BazadaLoginMavjud()
         {
             bool loginMavjud = false;
-            //SQLiteDataAdapter da = new SQLiteDataAdapter("select Id, Savol, Ajavob, Bjavob, Cjavob, Djavob, Ejavob from QuesTab", con);
             using (SQLiteConnection con = new SQLiteConnection(dba))
             using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM LoginTab where Login = @Login", con))
 
-            { 
+            {
                 con.Open();
                 com.Parameters.AddWithValue("@Login", LoginTxt.Text);
 
@@ -68,22 +65,20 @@ namespace OutlookDemo
                     loginMavjud = true;
                 }
 
-               
                 con.Close();
-
-
             }
             return loginMavjud;
         }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Guid guid = Guid.NewGuid();
-           
+
             if (NameTXT.Text == "" && LasnameTxt.Text == "" && PassTxt.Text == "" && LoginTxt.Text == "")
             {
                 MessageBox.Show("Ma'lumotni to'liq  kiriting", "Ma'lumot");
             }
-           
+
             bool loginMavjud = BazadaLoginMavjud();
 
             if (loginMavjud)
@@ -104,14 +99,12 @@ namespace OutlookDemo
                     com.Parameters.AddWithValue("Login", LoginTxt.Text);
                     com.Parameters.AddWithValue("Password", PassTxt.Text);
                     com.Parameters.AddWithValue("Guid", guid.ToString());
-                   
+
 
                     com.ExecuteNonQuery();
                     con.Close();
 
-
                     Empty();
-                   
 
                 }
                 populate();
@@ -152,7 +145,7 @@ namespace OutlookDemo
                 LasnameTxt.Text = row.Cells[2].Value.ToString();
                 LoginTxt.Text = row.Cells[5].Value.ToString();
                 PassTxt.Text = row.Cells[3].Value.ToString();
-                IdLogin = row.Cells[0].Value.ToString();    
+                IdLogin = row.Cells[0].Value.ToString();
             }
         }
 
@@ -169,21 +162,61 @@ namespace OutlookDemo
                     else
                     {
                         con.Open();
-                    string query = "DELETE FROM LoginTab WHERE Id = '" + IdLogin + "'";
-                        
-                    SQLiteCommand cmd = new SQLiteCommand(query, con);
+                        string query = "DELETE FROM LoginTab WHERE Id = '" + IdLogin + "'";
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Ma'lumot o'chirildi");
-                    con.Close();
-                    populate();
-                    Empty();
-                     }
+                        SQLiteCommand cmd = new SQLiteCommand(query, con);
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Ma'lumot o'chirildi");
+                        con.Close();
+                        populate();
+                        Empty();
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
         }
-    }
-}
+
+        private void UpdateBt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateBt_Click_1(object sender, EventArgs e)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(dba))
+                try
+                {
+                    if (NameTXT.Text == "")
+
+                    {
+                        MessageBox.Show("O'zgartirmioqchi bo'lgan ma'lumotingizni tanlang");
+                    }
+                    else
+                    {
+                        con.Open();
+
+                        string query = "UPDATE  LoginTab SET Name=@Name, LastName=@LastName,Password=@Password ,Login=@Login where Id=" + IdLogin;
+
+                        SQLiteCommand com = new SQLiteCommand(query, con);
+                        com.Parameters.AddWithValue("Name", NameTXT.Text);
+                        com.Parameters.AddWithValue("LastName", LasnameTxt.Text);
+                        com.Parameters.AddWithValue("Login", LoginTxt.Text);
+                        com.Parameters.AddWithValue("Password", PassTxt.Text);
+                        com.ExecuteNonQuery();
+                        MessageBox.Show("Ma'lumot o'zgardi");
+                        con.Close();
+
+                        populate();
+                        Empty();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+        }
+    } }
