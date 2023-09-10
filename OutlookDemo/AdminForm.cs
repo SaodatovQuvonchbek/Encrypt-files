@@ -169,7 +169,7 @@ namespace OutlookDemo
                     else
                     {
                         con.Open();
-                    string query = "DELETE FROM Login WHERE Id = '" + IdLogin + "'";
+                    string query = "DELETE FROM LoginTab WHERE Id = '" + IdLogin + "'";
                         
                     SQLiteCommand cmd = new SQLiteCommand(query, con);
 
