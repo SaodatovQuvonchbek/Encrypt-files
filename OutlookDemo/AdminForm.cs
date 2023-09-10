@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace OutlookDemo
@@ -30,7 +32,7 @@ namespace OutlookDemo
         private void populate()
         {  //SQLiteDataAdapter da = new SQLiteDataAdapter("select Id, Savol, Ajavob, Bjavob, Cjavob, Djavob, Ejavob from QuesTab", con);
             using (SQLiteConnection con = new SQLiteConnection(dba))
-            using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM Login", con))
+            using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM LoginTab", con))
 
             using (SQLiteDataAdapter da = new SQLiteDataAdapter(com))
             {
@@ -48,13 +50,45 @@ namespace OutlookDemo
         {
             Application.Exit();
         }
+        private bool BazadaLoginMavjud()
+        {
+            bool loginMavjud = false;
+            //SQLiteDataAdapter da = new SQLiteDataAdapter("select Id, Savol, Ajavob, Bjavob, Cjavob, Djavob, Ejavob from QuesTab", con);
+            using (SQLiteConnection con = new SQLiteConnection(dba))
+            using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM LoginTab where Login = @Login", con))
 
+            { 
+                con.Open();
+                com.Parameters.AddWithValue("@Login", LoginTxt.Text);
+
+                int count = Convert.ToInt32(com.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    loginMavjud = true;
+                }
+
+               
+                con.Close();
+
+
+            }
+            return loginMavjud;
+        }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Guid guid = Guid.NewGuid();
+           
             if (NameTXT.Text == "" && LasnameTxt.Text == "" && PassTxt.Text == "" && LoginTxt.Text == "")
             {
                 MessageBox.Show("Ma'lumotni to'liq  kiriting", "Ma'lumot");
+            }
+           
+            bool loginMavjud = BazadaLoginMavjud();
+
+            if (loginMavjud)
+            {
+                MessageBox.Show("Bu login nomi allaqachon mavjud. Iltimos, boshqa login nomi kiriting.", "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -62,7 +96,7 @@ namespace OutlookDemo
                 using (SQLiteConnection con = new SQLiteConnection(dba))
 
 
-                using (SQLiteCommand com = new SQLiteCommand("INSERT INTO Login(  Name, LastName,Password ,Login ,Guid)values (  @Name, @LastName, @Password, @Login, @Guid) ", con))
+                using (SQLiteCommand com = new SQLiteCommand("INSERT INTO LoginTab(  Name, LastName,Password ,Login ,Guid)values (  @Name, @LastName, @Password, @Login, @Guid ) ", con))
                 {
                     con.Open();
                     com.Parameters.AddWithValue("Name", NameTXT.Text);
@@ -70,6 +104,7 @@ namespace OutlookDemo
                     com.Parameters.AddWithValue("Login", LoginTxt.Text);
                     com.Parameters.AddWithValue("Password", PassTxt.Text);
                     com.Parameters.AddWithValue("Guid", guid.ToString());
+                   
 
                     com.ExecuteNonQuery();
                     con.Close();
@@ -80,7 +115,10 @@ namespace OutlookDemo
 
                 }
                 populate();
+                string folderPath = @"Files\" + LoginTxt.Text;
+                Directory.CreateDirectory(folderPath);
             }
+
         }
 
         private void AdminForm_Load(object sender, EventArgs e)

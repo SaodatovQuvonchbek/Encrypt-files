@@ -48,7 +48,7 @@ namespace OutlookDemo
         {
             connection.Open();
 
-            string query = "SELECT COUNT(*) FROM Login  WHERE Login = @Login AND Password = @password  ";
+            string query = "SELECT COUNT(*) FROM LoginTab  WHERE Login = @Login AND Password = @password  ";
             SQLiteCommand command = new SQLiteCommand(query, connection);
             command.Parameters.AddWithValue("@Login", username);
             command.Parameters.AddWithValue("@password", password);
