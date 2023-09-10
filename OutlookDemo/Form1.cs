@@ -20,11 +20,12 @@ namespace OutlookDemo
     {
        
 
-        public Form1(string username,string name)
+        public Form1(string login, string name)
         {
             InitializeComponent();
-            guna2HtmlLabel2.Text = username;
-            guna2HtmlLabel1.Text = name;
+            guna2HtmlLabel2.Text = "Xush kelibsiz, " + login + "!";
+            Namelb.Text = "Familiyangiz: " + name;
+
         }
 
         private void moveImageBox(object sender)

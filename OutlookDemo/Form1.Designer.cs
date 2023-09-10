@@ -43,7 +43,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.textOnButtonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.til = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Namelb = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textOnButtonsBindingSource)).BeginInit();
@@ -211,16 +211,16 @@
             this.til.Text = "Til sozlamari";
             this.til.Visible = false;
             // 
-            // guna2HtmlLabel1
+            // Namelb
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(879, 35);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(64, 25);
-            this.guna2HtmlLabel1.TabIndex = 20;
-            this.guna2HtmlLabel1.Text = "Muallif";
+            this.Namelb.BackColor = System.Drawing.Color.Transparent;
+            this.Namelb.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Namelb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Namelb.Location = new System.Drawing.Point(879, 35);
+            this.Namelb.Name = "Namelb";
+            this.Namelb.Size = new System.Drawing.Size(64, 25);
+            this.Namelb.TabIndex = 20;
+            this.Namelb.Text = "Muallif";
             // 
             // guna2HtmlLabel2
             // 
@@ -239,7 +239,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(1179, 700);
             this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.guna2HtmlLabel1);
+            this.Controls.Add(this.Namelb);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Mualliflar);
             this.Controls.Add(this.til);
@@ -278,7 +278,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel til;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel Namelb;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
     }
 }

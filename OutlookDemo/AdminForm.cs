@@ -132,7 +132,7 @@ namespace OutlookDemo
                     {
                         con.Open();
                     string query = "DELETE FROM Login WHERE Id = '" + IdLogin + "'";
-
+                        
                     SQLiteCommand cmd = new SQLiteCommand(query, con);
 
                     cmd.ExecuteNonQuery();
