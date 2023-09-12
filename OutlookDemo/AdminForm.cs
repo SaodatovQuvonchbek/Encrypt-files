@@ -87,6 +87,8 @@ namespace OutlookDemo
             }
             else
             {
+                string folderPath = @"Files\" + LoginTxt.Text;
+                Directory.CreateDirectory(folderPath);
 
                 using (SQLiteConnection con = new SQLiteConnection(dba))
 
@@ -108,8 +110,7 @@ namespace OutlookDemo
 
                 }
                 populate();
-                string folderPath = @"Files\" + LoginTxt.Text;
-                Directory.CreateDirectory(folderPath);
+               
             }
 
         }

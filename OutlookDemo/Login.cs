@@ -35,7 +35,8 @@ namespace OutlookDemo
             if (CheckCredentials(username, password))
             {
                 string lastName = GetLastName(username);
-                Form1 form1 = new Form1(username, lastName);
+                string guidName = GetGuidName(username);
+                Form1 form1 = new Form1(username, lastName,guidName);
                 form1.Show();
                 this.Hide();
             }
@@ -74,7 +75,7 @@ namespace OutlookDemo
         {
             connection.Open();
 
-            string query = "SELECT LastName FROM Login WHERE Login = @Login";
+            string query = "SELECT LastName FROM LoginTab WHERE Login = @Login";
             SQLiteCommand command = new SQLiteCommand(query, connection);
             command.Parameters.AddWithValue("@Login", username);
 
@@ -82,8 +83,22 @@ namespace OutlookDemo
             connection.Close();
 
             return lastName;
-        
-    }
+
+        }
+        private string GetGuidName(string username)
+        {
+            connection.Open();
+
+            string query = "SELECT Guid FROM LoginTab WHERE Login = @Login";
+            SQLiteCommand command = new SQLiteCommand(query, connection);
+            command.Parameters.AddWithValue("@Login", username);
+
+            string guidName = command.ExecuteScalar().ToString();
+            connection.Close();
+
+            return guidName;
+
+        }
         private void Login_Load(object sender, EventArgs e)
         {
 

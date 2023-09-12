@@ -20,12 +20,14 @@ namespace OutlookDemo
     {
        
 
-        public Form1(string login, string name)
+        public Form1(string login, string name,string guid)
         {
             InitializeComponent();
-            guna2HtmlLabel2.Text = "Xush kelibsiz, " + login + "!";
+         //   Loginlb.Text = "Xush kelibsiz, " + login + "!";
+         Loginlb.Text = login;
             Namelb.Text = "Familiyangiz: " + name;
-
+            string guit = guid;
+            Mualliflar.Text = guit;
         }
 
         private void moveImageBox(object sender)
@@ -74,12 +76,12 @@ namespace OutlookDemo
         {
             //EncryptedData uc = new EncryptedData();
             //addUserControl(uc);
-            string folderPath = @"D:\Yangi";
+            string folderPath = @"Files\"+Loginlb.Text;
 
 
             if (!Directory.Exists(folderPath))
             {
-                MessageBox.Show("Belirtilen klasör bulunamadı!");
+                //MessageBox.Show("Belirtilen klasör bulunamadı!");
                 return;
             }
 
@@ -274,14 +276,18 @@ namespace OutlookDemo
                 string fileName = Path.GetFileName(sourceFilePath);
                 // SaveFileDialog yaratamiz va sozlamalarni belgilaymiz
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
-
-                //    saveFileDialog.Filter = "Deshifrlash files (*.mp4)|*.mp4";
+                saveFileDialog.CheckFileExists = false;
+                saveFileDialog.CheckPathExists = true;
+                saveFileDialog.DefaultExt = Path.GetExtension(fileName);
+                saveFileDialog.Filter = "All files (*.*)|*.*";
+               
                 saveFileDialog.FileName = fileName;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
+                        
                         string targetFilePath = (saveFileDialog.FileName);
                         File.Move((sourceFilePath), targetFilePath);
                         MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
