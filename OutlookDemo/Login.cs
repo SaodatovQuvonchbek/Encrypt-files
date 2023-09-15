@@ -74,7 +74,7 @@ namespace OutlookDemo
         {
             connection.Open();
 
-            string query = "SELECT LastName FROM Login WHERE Login = @Login";
+            string query = "SELECT LastName FROM LoginTab WHERE Login = @Login";
             SQLiteCommand command = new SQLiteCommand(query, connection);
             command.Parameters.AddWithValue("@Login", username);
 

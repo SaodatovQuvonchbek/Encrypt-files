@@ -79,7 +79,7 @@ namespace OutlookDemo
 
             if (!Directory.Exists(folderPath))
             {
-                MessageBox.Show("Belirtilen klasör bulunamadı!");
+               
                 return;
             }
 
