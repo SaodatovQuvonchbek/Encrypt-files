@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -318,8 +319,8 @@ namespace OutlookDemo
 
         private void guna2Button3_Click_2(object sender, EventArgs e)
         {
-           
-         
+            string folderPath = @"Files\" + Loginlb.Text;
+
             //This is for selected files
             if (listBox1.Items.Count > 0)
             {
@@ -332,7 +333,29 @@ namespace OutlookDemo
                         File.Delete("" + listBox1.Items[num]);
                     }
                 }
+                foreach (var item in listBox1.Items)
+                {
+                    string sourcePath = item.ToString() + ".!LOCKED";
+                    string fileName = Path.GetFileName(sourcePath);
+                    string destinationPath = Path.Combine(folderPath, fileName);
+
+                    try
+                    {
+                        // string fileName = Path.GetFileName(filePath);
+                        //  string destinationPath = Path.Combine(destinationDirectory, fileName);
+                      
+                        //  File.Move(filePath, destinationPath);
+                        File.Copy(sourcePath, destinationPath,true);
+                        MessageBox.Show(sourcePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                    }
+                }
+
             }
+
 
         }
         private void EncryptFile(string inputFile, string outputFile, string password)
@@ -365,6 +388,10 @@ namespace OutlookDemo
             catch { }
         }
 
+        private void malumotdg_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
  
