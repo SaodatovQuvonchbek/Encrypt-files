@@ -82,7 +82,7 @@ namespace OutlookDemo
 
             if (!Directory.Exists(folderPath))
             {
-                //MessageBox.Show("Belirtilen klasör bulunamadı!");
+
                 return;
             }
 
@@ -333,24 +333,54 @@ namespace OutlookDemo
                         File.Delete("" + listBox1.Items[num]);
                     }
                 }
-                foreach (var item in listBox1.Items)
-                {
-                    string sourcePath = item.ToString() + ".!LOCKED";
-                    string fileName = Path.GetFileName(sourcePath);
-                    string destinationPath = Path.Combine(folderPath, fileName);
+                //foreach (var item in listBox1.Items)
+                //{
+                //    string sourcePath = item.ToString() + ".!LOCKED";
+                //    string fileName = Path.GetFileName(sourcePath);
+                //    string destinationPath = Path.Combine(folderPath, fileName);
 
+                //    try
+                //    {
+                //        // string fileName = Path.GetFileName(filePath);
+                //        //  string destinationPath = Path.Combine(destinationDirectory, fileName);
+
+                //        //  File.Move(filePath, destinationPath);
+                //        File.Copy(sourcePath, destinationPath,true);
+                //        MessageBox.Show(sourcePath);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show($"An error occurred: {ex.Message}");
+                //    }
+                //}
+
+                var selectedFiles = listBox1.Items.Cast<string>().ToList();
+
+                if (selectedFiles.Count == 0)
+                {
+                    MessageBox.Show("Iltimos, fayllarni tanlang.", "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string destinationDirectory = @"D:\YangiPapka"; // Yangi papka nomini o'zgartiring
+
+                if (!Directory.Exists(destinationDirectory))
+                {
+                    Directory.CreateDirectory(destinationDirectory);
+                }
+
+                foreach (var filePath in selectedFiles)
+                {
                     try
                     {
-                        // string fileName = Path.GetFileName(filePath);
-                        //  string destinationPath = Path.Combine(destinationDirectory, fileName);
-                      
-                        //  File.Move(filePath, destinationPath);
-                        File.Copy(sourcePath, destinationPath,true);
-                        MessageBox.Show(sourcePath);
+                        string fileName = Path.GetFileName(filePath) + ".!LOCKED";
+                        string destinationPath = Path.Combine(destinationDirectory, fileName);
+
+                        File.Move(filePath, destinationPath);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred: {ex.Message}");
+                        MessageBox.Show($"Faylni ko'chirishda xatolik yuz berdi: {ex.Message}", "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
