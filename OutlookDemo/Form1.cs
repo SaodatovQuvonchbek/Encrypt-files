@@ -319,54 +319,47 @@ namespace OutlookDemo
 
         private void guna2Button3_Click_2(object sender, EventArgs e)
         {
-            string folderPath = @"Files\" + Loginlb.Text;
+            //string folderPath = @"Files\" + Loginlb.Text;
 
-            //This is for selected files
+            ////This is for selected files
+            //if (listBox1.Items.Count > 0)
+            //{
+            //    for (int num = 0; num < listBox1.Items.Count; num++)
+            //    {
+            //        string e_file = "" + listBox1.Items[num];
+            //        if (!e_file.Trim().EndsWith(".!LOCKED") && File.Exists(e_file))
+            //        {
+
+            //            EncryptFile("" + listBox1.Items[num], "" + listBox1.Items[num]
+            //                + ".!LOCKED", Mualliflar.Text);
+            //            string fa = listBox1.Items[num]+ ".!LOCKED";
+            //            File.Move(folderPath, fa);
+            //            File.Delete("" + listBox1.Items[num]);
+            //        }
+
+
+            //    }
+
+            string destinationFolderPath = @"Files\" + Loginlb.Text; 
+
             if (listBox1.Items.Count > 0)
             {
                 for (int num = 0; num < listBox1.Items.Count; num++)
                 {
-                    string e_file = "" + listBox1.Items[num];
-                    if (!e_file.Trim().EndsWith(".!LOCKED") && File.Exists(e_file))
+                    string originalFilePath = "" + listBox1.Items[num];
+                    if (File.Exists(originalFilePath))
                     {
-                    
-                        EncryptFile("" + listBox1.Items[num], "" + listBox1.Items[num] + ".!LOCKED", Mualliflar.Text);
-                        string fa = listBox1.Items[num]+ ".!LOCKED";
-                        File.Move(folderPath, fa);
-                        File.Delete("" + listBox1.Items[num]);
+                        string lockedFilePath = Path.Combine(destinationFolderPath, Path.GetFileName(originalFilePath) + ".!LOCKED"); // Yangi joyga ko'chirish uchun shifrlangan fayl nomini tuzish
+
+                        EncryptFile(originalFilePath, lockedFilePath, Mualliflar.Text); 
+                        File.Delete(originalFilePath); 
                     }
-
-                   
                 }
+            
 
 
 
-
-                //foreach (var item in listBox1.Items)
-                //{
-                //    string sourcePath = (item + ".!LOCKED").ToString();
-                //    string fileName = Path.GetFileName(sourcePath);
-                //    string destinationPath = Path.Combine(folderPath, fileName);
-
-                //    try
-                //    {
-                //        // string fileName = Path.GetFileName(filePath);
-                //        //  string destinationPath = Path.Combine(destinationDirectory, fileName);
-
-                //        File.Copy(folderPath, destinationPath, true);
-                //        //  File.Copy(sourcePath, destinationPath, true);
-                //        MessageBox.Show(sourcePath);
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show($"An error occurred: {ex.Message}");
-                //    }
-
-           //     }
-
-
-
-            }
+        }
 
 
         }
@@ -411,7 +404,7 @@ namespace OutlookDemo
                 string sourceFilePath = cell.OwningRow.Cells["url"].Value.ToString();
                 //  string sourceFilePath = @"D:\yangi\1.mp4";
                 string fileName = Path.GetFileName(sourceFilePath);
-                // SaveFileDialog yaratamiz va sozlamalarni belgilaymiz
+                string destinationFolderPath = @"Files\" + Loginlb.Text;
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.CheckFileExists = false;
                 saveFileDialog.CheckPathExists = true;
@@ -419,30 +412,62 @@ namespace OutlookDemo
                 saveFileDialog.Filter = "All files (*.*)|*.*";
 
                 saveFileDialog.FileName = fileName;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                MessageBox.Show(fileName);
+              
                 {
                     try
                     {
-
-                        string targetFilePath = (saveFileDialog.FileName);
-                        File.Move((sourceFilePath), targetFilePath);
+                     string decryptedFilePath = Path.Combine(@"Files\" + Loginlb.Text, fileName);
+                        DecryptFile(sourceFilePath, decryptedFilePath.TrimEnd(mychar), Mualliflar.Text);
+                                    File.Delete(sourceFilePath);
+                       //string targetFilePath = (saveFileDialog.FileName);
+                        //File.Move((sourceFilePath), targetFilePath);
                         MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show("Xatolik: " + ex.Message, "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 malumotdg.Rows.RemoveAt(e.RowIndex);
+               
             }
-        }
 
+        }
+        char[] mychar = { '!', '.', 'L', 'O', 'C', 'K', 'E', 'D' };
         private void guna2Button7_Click_1(object sender, EventArgs e)
         {
+          
+        }
+        private void DecryptFile(string inputFile, string outputFile, string password)
+        {
+            try
+            {
+                UnicodeEncoding UE = new UnicodeEncoding();
+                byte[] key = UE.GetBytes(password);
 
+                FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
+
+                RijndaelManaged RMCrypto = new RijndaelManaged();
+
+                CryptoStream cs = new CryptoStream(fsCrypt,
+                    RMCrypto.CreateDecryptor(key, key),
+                    CryptoStreamMode.Read);
+
+                FileStream fsOut = new FileStream(outputFile, FileMode.Create);
+
+                int data;
+                while ((data = cs.ReadByte()) != -1)
+                    fsOut.WriteByte((byte)data);
+
+                fsOut.Close();
+                cs.Close();
+                fsCrypt.Close();
+            }
+            catch { }
         }
-        }
+    }
 
      }
  
