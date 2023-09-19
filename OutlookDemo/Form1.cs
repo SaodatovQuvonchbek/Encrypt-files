@@ -329,13 +329,22 @@ namespace OutlookDemo
                     string e_file = "" + listBox1.Items[num];
                     if (!e_file.Trim().EndsWith(".!LOCKED") && File.Exists(e_file))
                     {
+                    
                         EncryptFile("" + listBox1.Items[num], "" + listBox1.Items[num] + ".!LOCKED", Mualliflar.Text);
+                        string fa = listBox1.Items[num]+ ".!LOCKED";
+                        File.Move(folderPath, fa);
                         File.Delete("" + listBox1.Items[num]);
                     }
+
+                   
                 }
+
+
+
+
                 //foreach (var item in listBox1.Items)
                 //{
-                //    string sourcePath = item.ToString() + ".!LOCKED";
+                //    string sourcePath = (item + ".!LOCKED").ToString();
                 //    string fileName = Path.GetFileName(sourcePath);
                 //    string destinationPath = Path.Combine(folderPath, fileName);
 
@@ -344,45 +353,18 @@ namespace OutlookDemo
                 //        // string fileName = Path.GetFileName(filePath);
                 //        //  string destinationPath = Path.Combine(destinationDirectory, fileName);
 
-                //        //  File.Move(filePath, destinationPath);
-                //        File.Copy(sourcePath, destinationPath,true);
+                //        File.Copy(folderPath, destinationPath, true);
+                //        //  File.Copy(sourcePath, destinationPath, true);
                 //        MessageBox.Show(sourcePath);
                 //    }
                 //    catch (Exception ex)
                 //    {
                 //        MessageBox.Show($"An error occurred: {ex.Message}");
                 //    }
-                //}
 
-                var selectedFiles = listBox1.Items.Cast<string>().ToList();
+           //     }
 
-                if (selectedFiles.Count == 0)
-                {
-                    MessageBox.Show("Iltimos, fayllarni tanlang.", "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
-                string destinationDirectory = @"D:\YangiPapka"; // Yangi papka nomini o'zgartiring
-
-                if (!Directory.Exists(destinationDirectory))
-                {
-                    Directory.CreateDirectory(destinationDirectory);
-                }
-
-                foreach (var filePath in selectedFiles)
-                {
-                    try
-                    {
-                        string fileName = Path.GetFileName(filePath) + ".!LOCKED";
-                        string destinationPath = Path.Combine(destinationDirectory, fileName);
-
-                        File.Move(filePath, destinationPath);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Faylni ko'chirishda xatolik yuz berdi: {ex.Message}", "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
 
             }
 
@@ -420,10 +402,51 @@ namespace OutlookDemo
 
         private void malumotdg_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex == malumotdg.Columns["Btndg"].Index)
+            {
+                //    if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+                //    {
+
+                DataGridViewCell cell = malumotdg.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string sourceFilePath = cell.OwningRow.Cells["url"].Value.ToString();
+                //  string sourceFilePath = @"D:\yangi\1.mp4";
+                string fileName = Path.GetFileName(sourceFilePath);
+                // SaveFileDialog yaratamiz va sozlamalarni belgilaymiz
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.CheckFileExists = false;
+                saveFileDialog.CheckPathExists = true;
+                saveFileDialog.DefaultExt = Path.GetExtension(fileName);
+                saveFileDialog.Filter = "All files (*.*)|*.*";
+
+                saveFileDialog.FileName = fileName;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+
+                        string targetFilePath = (saveFileDialog.FileName);
+                        File.Move((sourceFilePath), targetFilePath);
+                        MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xatolik: " + ex.Message, "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                malumotdg.Rows.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private void guna2Button7_Click_1(object sender, EventArgs e)
+        {
 
         }
-    }
-}
+        }
+
+     }
+ 
+
  
 
 //}
