@@ -264,43 +264,44 @@ namespace OutlookDemo
 
         }
 
-        private void malumotdg_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == malumotdg.Columns["Btndg"].Index)
-            {
-                //    if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
-                //    {
+        //private void malumotdg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex >= 0 && e.ColumnIndex == malumotdg.Columns["Btndg"].Index)
+        //    {
+        //        //    if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+        //        //    {
 
-                DataGridViewCell cell = malumotdg.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                string sourceFilePath = cell.OwningRow.Cells["url"].Value.ToString();
-                //  string sourceFilePath = @"D:\yangi\1.mp4";
-                string fileName = Path.GetFileName(sourceFilePath);
-                // SaveFileDialog yaratamiz va sozlamalarni belgilaymiz
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.CheckFileExists = false;
-                saveFileDialog.CheckPathExists = true;
-                saveFileDialog.DefaultExt = Path.GetExtension(fileName);
-                saveFileDialog.Filter = "All files (*.*)|*.*";
+        //        DataGridViewCell cell = malumotdg.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        //        string sourceFilePath = cell.OwningRow.Cells["url"].Value.ToString();
+        //        //  string sourceFilePath = @"D:\yangi\1.mp4";
+        //        string fileName = Path.GetFileName(sourceFilePath);
+        //        // SaveFileDialog yaratamiz va sozlamalarni belgilaymiz
+        //        SaveFileDialog saveFileDialog = new SaveFileDialog();
+        //        saveFileDialog.CheckFileExists = false;
+        //        saveFileDialog.CheckPathExists = true;
+        //        saveFileDialog.DefaultExt = Path.GetExtension(fileName);
+        //        saveFileDialog.Filter = "All files (*.*)|*.*";
                
-                saveFileDialog.FileName = fileName;
+        //        saveFileDialog.FileName = fileName;
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
+        //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        //        {
+        //            try
+        //            {
                         
-                        string targetFilePath = (saveFileDialog.FileName);
-                        File.Move((sourceFilePath), targetFilePath);
-                        MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Xatolik: " + ex.Message, "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                malumotdg.Rows.RemoveAt(e.RowIndex);
-            }
-        }
+        //                string targetFilePath = (saveFileDialog.FileName);
+        //                File.Move((sourceFilePath), targetFilePath);
+        //                MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                malumotdg.Rows.RemoveAt(e.RowIndex);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show("Xatolik: " + ex.Message, "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+              
+        //    }
+        //}
 
         private void guna2Button4_Click_1(object sender, EventArgs e)
         {
@@ -316,7 +317,7 @@ namespace OutlookDemo
                 listBox1.Items.Add(file); 
             }
         }
-
+        //shifrlash
         private void guna2Button3_Click_2(object sender, EventArgs e)
         {
             //string folderPath = @"Files\" + Loginlb.Text;
@@ -352,7 +353,11 @@ namespace OutlookDemo
                         string lockedFilePath = Path.Combine(destinationFolderPath, Path.GetFileName(originalFilePath) + ".!LOCKED"); // Yangi joyga ko'chirish uchun shifrlangan fayl nomini tuzish
 
                         EncryptFile(originalFilePath, lockedFilePath, Mualliflar.Text); 
-                        File.Delete(originalFilePath); 
+                        File.Delete(originalFilePath);
+
+
+                        MessageBox.Show("Fayl muvaffaqiyatli shifrlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listBox1.Items.Clear();
                     }
                 }
             
@@ -418,6 +423,17 @@ namespace OutlookDemo
                     try
                     {
                      string decryptedFilePath = Path.Combine(@"Files\" + Loginlb.Text, fileName);
+
+                        //string eskiurl = @"eski\konum";
+                        //string yangiurl = @"yeni\konum";
+                        //string dosyaAdi = "dosya.txt";
+
+                        //string sourceFilePath = Path.Combine(eskiKonum, dosyaAdi);
+                        //string targetFilePath = Path.Combine(yeniKonum, dosyaAdi);
+
+                        //File.Move(sourceFilePath, targetFilePath);
+
+
                         DecryptFile(sourceFilePath, decryptedFilePath.TrimEnd(mychar), Mualliflar.Text);
                                     File.Delete(sourceFilePath);
                        //string targetFilePath = (saveFileDialog.FileName);
