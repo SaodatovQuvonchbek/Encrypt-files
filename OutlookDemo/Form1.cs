@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace OutlookDemo
 {
@@ -348,12 +349,12 @@ namespace OutlookDemo
                 for (int num = 0; num < listBox1.Items.Count; num++)
                 {
                     string originalFilePath = "" + listBox1.Items[num];
-                    if (File.Exists(originalFilePath))
+                    if (System.IO.File.Exists(originalFilePath))
                     {
                         string lockedFilePath = Path.Combine(destinationFolderPath, Path.GetFileName(originalFilePath) + ".!LOCKED"); // Yangi joyga ko'chirish uchun shifrlangan fayl nomini tuzish
 
-                        EncryptFile(originalFilePath, lockedFilePath, Mualliflar.Text); 
-                        File.Delete(originalFilePath);
+                        EncryptFile(originalFilePath, lockedFilePath, Mualliflar.Text);
+                        System.IO.File.Delete(originalFilePath);
 
 
                         MessageBox.Show("Fayl muvaffaqiyatli shifrlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -397,7 +398,7 @@ namespace OutlookDemo
             }
             catch { }
         }
-
+        char[] mychar = { '!', '.', 'L', 'O', 'C', 'K', 'E', 'D' };
         private void malumotdg_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == malumotdg.Columns["Btndg"].Index)
@@ -417,28 +418,26 @@ namespace OutlookDemo
                 saveFileDialog.Filter = "All files (*.*)|*.*";
 
                 saveFileDialog.FileName = fileName;
-                MessageBox.Show(fileName);
+              //  MessageBox.Show(fileName);
               
                 {
                     try
                     {
-                     string decryptedFilePath = Path.Combine(@"Files\" + Loginlb.Text, fileName);
-
-                        //string eskiurl = @"eski\konum";
-                        //string yangiurl = @"yeni\konum";
-                        //string dosyaAdi = "dosya.txt";
-
-                        //string sourceFilePath = Path.Combine(eskiKonum, dosyaAdi);
-                        //string targetFilePath = Path.Combine(yeniKonum, dosyaAdi);
-
-                        //File.Move(sourceFilePath, targetFilePath);
-
-
-                        DecryptFile(sourceFilePath, decryptedFilePath.TrimEnd(mychar), Mualliflar.Text);
-                                    File.Delete(sourceFilePath);
-                       //string targetFilePath = (saveFileDialog.FileName);
-                        //File.Move((sourceFilePath), targetFilePath);
-                        MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string decryptedFilePath = $"Files\\{Loginlb.Text}\\" + fileName;
+                        MessageBox.Show(Loginlb.Text);
+                        //if (decryptedFilePath.Trim().EndsWith(".!LOCKED") && System.IO.File.Exists(decryptedFilePath))
+                        //{
+                            DecryptFile(decryptedFilePath, decryptedFilePath.TrimEnd(mychar), Mualliflar.Text);
+                            System.IO.File.Delete(decryptedFilePath);
+                            MessageBox.Show(decryptedFilePath);
+                            //string targetFilePath = (saveFileDialog.FileName);
+                            //File.Move((sourceFilePath), targetFilePath);
+                            MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            malumotdg.Rows.RemoveAt(e.RowIndex);
+                      //  }
+                       // DecryptFile(decryptedFilePath, decryptedFilePath.TrimEnd(mychar), Mualliflar.Text);
+                       //File.Delete(decryptedFilePath);
+                      
                     }
 
                     catch (Exception ex)
@@ -446,12 +445,12 @@ namespace OutlookDemo
                         MessageBox.Show("Xatolik: " + ex.Message, "Xatolik", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                malumotdg.Rows.RemoveAt(e.RowIndex);
+              
                
             }
 
         }
-        char[] mychar = { '!', '.', 'L', 'O', 'C', 'K', 'E', 'D' };
+        //char[] mychar = { '!', '.', 'L', 'O', 'C', 'K', 'E', 'D' };
         private void guna2Button7_Click_1(object sender, EventArgs e)
         {
           
@@ -482,6 +481,11 @@ namespace OutlookDemo
                 fsCrypt.Close();
             }
             catch { }
+        }
+
+        private void guna2Button5_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 
