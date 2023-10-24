@@ -401,6 +401,7 @@ namespace OutlookDemo
         char[] mychar = { '!', '.', 'L', 'O', 'C', 'K', 'E', 'D' };
         private void malumotdg_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex >= 0 && e.ColumnIndex == malumotdg.Columns["Btndg"].Index)
             {
                 //    if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
@@ -417,6 +418,7 @@ namespace OutlookDemo
                 saveFileDialog.DefaultExt = Path.GetExtension(fileName);
                 saveFileDialog.Filter = "All files (*.*)|*.*";
 
+<<<<<<< Updated upstream
                 saveFileDialog.FileName = fileName;
               //  MessageBox.Show(fileName);
               
@@ -438,6 +440,19 @@ namespace OutlookDemo
                        // DecryptFile(decryptedFilePath, decryptedFilePath.TrimEnd(mychar), Mualliflar.Text);
                        //File.Delete(decryptedFilePath);
                       
+=======
+               // saveFileDialog.FileName = fileName;
+               
+                {
+                    try
+                    {
+                     string decryptedFilePath = Path.Combine(saveFileDialog.FileName,Path.GetFileName( sourceFilePath.TrimEnd(mychar)));
+                      DecryptFile(sourceFilePath, decryptedFilePath, Mualliflar.Text);
+                                    File.Delete(sourceFilePath);
+                       //string targetFilePath = (saveFileDialog.FileName);
+                        //File.Move((sourceFilePath), targetFilePath);
+                        MessageBox.Show("Fayl muvaffaqiyatli saqlandi!", "Muvaffaqiyat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+>>>>>>> Stashed changes
                     }
 
                     catch (Exception ex)
